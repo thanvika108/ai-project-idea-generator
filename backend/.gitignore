@@ -1,0 +1,22 @@
+node_modules/
+.env
+npm-debug.log*
+coverage/
+npm.cmd install
+node --version
+npm.cmd --version
+dir
+Copy-Item .env.example .env
+npm.cmd run
+npm.cmd run dev
+npm.cmd start
+node server.js
+node --version
+npm.cmd --version
+npm.cmd install
+cd ..
+dir
+npm.cmd install
+npm.cmd run
+npm.cmd run dev
+

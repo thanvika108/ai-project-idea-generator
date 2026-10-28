@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15243b">
+  <meta name="description" content="Discover practical student project ideas and save your favourites.">
+  <title>IdeaForge — AI Project Idea Generator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="IdeaForge home"><span class="brand-mark">✳</span><span>IdeaForge<small>PROJECT IDEA STUDIO</small></span></a>
+    <nav class="nav" id="main-nav"><button class="nav-link active" data-view="home">Discover</button><button class="nav-link" data-view="saved" id="saved-nav" hidden>My shortlist</button><button class="nav-link" data-view="admin" id="admin-nav" hidden>Admin</button></nav>
+    <div class="account-area" id="account-area"><button class="button button-quiet" id="signin-open">Sign in</button><button class="button button-primary" id="signup-open">Create account</button></div>
+  </header>
+  <main class="page-shell">
+    <section class="hero" id="hero">
+      <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> BUILT FOR STUDENT BUILDERS</div><h1>Your next big idea<br>starts <span>right here.</span></h1><p>Turn your interests into practical project ideas. Explore domains, choose a skill level, and build something you can confidently demo.</p><div class="hero-points"><span>✓ First-year friendly</span><span>✓ No AI API required</span><span>✓ Save your shortlist</span></div></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="idea-core">✳</div><div class="float-card float-card-one"><span class="mini-icon">⌘</span><span><b>Build with purpose</b><small>Real problems, useful ideas</small></span></div><div class="float-card float-card-two"><span class="mini-icon green">↗</span><span><b>Start small</b><small>Grow as you learn</small></span></div><div class="spark spark-one">✦</div><div class="spark spark-two">✧</div></div>
+    </section>
+    <section class="workspace" id="discover-view">
+      <div class="section-heading"><div><div class="eyebrow muted">IDEA GENERATOR</div><h2>Find your project direction</h2><p>Tell us what you're curious about. We'll suggest a focused starting point.</p></div><span class="step-pill"><span>01</span> CUSTOMIZE</span></div>
+      <form id="generator-form" class="generator-panel">
+        <div class="field"><label for="domain">Project domain</label><select id="domain" name="domain"><option>AI & Machine Learning</option><option>Web Development</option><option>IoT & Embedded</option><option>Cybersecurity</option><option>Environment</option><option>Healthcare & Wellness</option><option>Education</option><option selected>Open Innovation</option></select></div>
+        <div class="field"><label for="skill-level">Your skill level</label><select id="skill-level" name="skillLevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+        <div class="field field-wide"><label for="interests">Interests <span class="optional">OPTIONAL</span></label><input id="interests" name="interests" maxlength="120" placeholder="e.g. campus life, sustainability, robotics"></div>
+        <div class="field"><label for="idea-count">Number of ideas</label><select id="idea-count" name="count"><option value="3">3 ideas</option><option value="5" selected>5 ideas</option><option value="8">8 ideas</option></select></div>
+        <div class="form-action"><button class="button button-primary button-generate" type="submit"><span>✳</span> Generate ideas <span>→</span></button><small>Curated idea engine · instant results</small></div>
+      </form>
+      <div id="status-message" class="status-message" role="status" aria-live="polite"></div>
+      <div class="results-heading" id="results-heading" hidden><div><div class="eyebrow muted">YOUR STARTING POINTS</div><h2>Ideas worth exploring</h2></div><span id="results-count" class="result-count"></span></div>
+      <div class="idea-grid" id="idea-grid"></div>
+    </section>
+    <section class="saved-section" id="saved-view" hidden><div class="section-heading"><div><div class="eyebrow muted">YOUR COLLECTION</div><h2>My shortlist</h2><p>Ideas you've saved for your next project discussion.</p></div></div><div class="idea-grid" id="saved-grid"></div><div id="saved-empty" class="empty-state" hidden><div class="empty-icon">☆</div><h3>Your shortlist is waiting</h3><p>Save an idea from Discover and it will appear here.</p><button class="button button-primary" data-view="home">Explore ideas</button></div></section>
+    <section class="admin-section" id="admin-view" hidden><div class="section-heading"><div><div class="eyebrow muted">ADMIN CONSOLE</div><h2>Workspace overview</h2><p>A quick view of registered accounts and saved project ideas.</p></div></div><div class="stats-grid"><article class="stat-card"><span>REGISTERED USERS</span><strong id="stat-users">—</strong><small>Accounts in the app</small></article><article class="stat-card"><span>SAVED IDEAS</span><strong id="stat-ideas">—</strong><small>Ideas in all shortlists</small></article></div><p class="admin-note">Admin access is checked on the server. This MVP provides summary statistics only; it does not expose passwords or private user shortlists.</p></section>
+    <section class="how-section"><div class="eyebrow muted">FROM IDEA TO DEMO</div><h2>A simple path to your first project</h2><div class="steps-grid"><article class="step-card"><span>01</span><h3>Explore</h3><p>Pick a domain and level that match your interests and current skills.</p></article><article class="step-card"><span>02</span><h3>Shortlist</h3><p>Save ideas and compare the problem, scope, and suggested features.</p></article><article class="step-card"><span>03</span><h3>Build</h3><p>Start with a small prototype, test it with classmates, and improve it.</p></article></div></section>
+    <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">✳</span><span>IdeaForge<small>PROJECT IDEA STUDIO</small></span></a><span>Made for curious minds. Start small, build boldly.</span></footer>
+  </main>
+  <div class="modal-backdrop" id="auth-modal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-title"><button class="modal-close" id="modal-close" aria-label="Close">×</button><div class="modal-symbol">✳</div><div class="eyebrow muted" id="auth-eyebrow">WELCOME BACK</div><h2 id="auth-title">Sign in to IdeaForge</h2><p id="auth-subtitle">Keep your favourite ideas in one place.</p><form id="auth-form"><div class="field" id="name-field" hidden><label for="auth-name">Your name</label><input id="auth-name" name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="e.g. Priya Kumar"></div><div class="field"><label for="auth-email">Email address</label><input id="auth-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></div><div class="field"><label for="auth-password">Password</label><input id="auth-password" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="72" placeholder="At least 8 characters"></div><div class="status-message" id="auth-message" role="status" aria-live="polite"></div><button class="button button-primary modal-submit" id="auth-submit" type="submit">Sign in →</button></form><p class="modal-switch" id="modal-switch">New to IdeaForge? <button type="button" id="switch-auth">Create an account</button></p></section></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="idea-dialog" class="idea-dialog"><button class="modal-close" id="idea-dialog-close" aria-label="Close details">×</button><div id="idea-detail-content"></div></dialog>
+</body>
+</html>
